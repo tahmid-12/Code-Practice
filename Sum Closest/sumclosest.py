@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums, result, min_diff, i = sorted(nums), float("inf"), float("inf"), 0

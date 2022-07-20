@@ -1,0 +1,19 @@
+from typing import List
+
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if target not in nums:
+            return [-1,-1]
+        else:
+            temp = []
+            for i in range(len(nums)):
+                if nums[i] == target:
+                    temp.append(i)
+            result = []
+            result.append(temp[0])
+            result.append(temp[-1])
+            return result
+            
+S = Solution()
+nums, t = [5,7,7,8,8,10], 8
+print(S.searchRange(nums,t))

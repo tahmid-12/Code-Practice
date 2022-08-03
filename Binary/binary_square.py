@@ -2,18 +2,15 @@ from typing import List
 
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
-        # return c
-        left = 0
-        right = int(c/2)
-        
-        while left <= right:
-            result = left * left + right * right
-            if result < c:
-                left += 1
-            elif result > c:
-                right -= 1
-            else:
+        a=0
+        b=int(math.sqrt(c))
+        while a<=b:
+            if a*a+b*b==c:
                 return True
+            elif a*a+b*b<c:
+                a+=1
+            else:
+                b-=1
         return False
         
         

@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:

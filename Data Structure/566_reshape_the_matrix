@@ -1,0 +1,25 @@
+from typing import List
+
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        
+        row_length = len(mat)
+        column_length = len(mat[0])
+        
+        if row_length*column_length != r*c:
+            return mat
+            
+        long_list = []
+        answer_list = []
+        
+        for row in mat:
+            for column in row:
+                long_list.append(column)
+                
+        for index in range(0, len(long_list), c):
+            answer_list.append(long_list[index:index+c])
+        return answer_list
+        
+        
+S = Solution()
+print(S. matrixReshape([[1,2],[3,4]],2,2))

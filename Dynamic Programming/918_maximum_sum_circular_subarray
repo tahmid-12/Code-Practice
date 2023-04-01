@@ -1,0 +1,18 @@
+from typing import List
+
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        max_cur, max_glo, min_cur, min_glo = nums[0], nums[0], nums[0], nums[0]
+        for n in nums[1:]:
+            max_cur = max(n, n + max_cur)
+            max_glo = max(max_glo, max_cur)
+            min_cur = min(n, n + min_cur)
+            min_glo = min(min_glo, min_cur)
+        s = sum(nums)
+        if s == min_glo:
+            return max_glo
+        return max(max_glo, s - min_glo)
+        
+        
+S = Solution()
+print(S.maxSubarraySumCircular([-3,-2,-3]))

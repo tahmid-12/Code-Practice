@@ -13,5 +13,5 @@ class Solution:
 
     return ans
     
-S = SOlution()
+S = Solution()
 print(S.generate(5))

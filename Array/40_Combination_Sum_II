@@ -1,0 +1,22 @@
+from typing import List
+
+class Solution:
+  def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+      candidates = sorted(candidates)
+      res = []
+      
+      def dfs(n, path, target):
+          if target < 0:
+              return
+          if target == 0:
+              res.append(path)
+              return
+          for i in range(n+1, len(candidates)):
+              if i > n+1 and candidates[i] == candidates[i-1]:
+                  continue
+              dfs(i, path+[candidates[i]], target-candidates[i])
+      dfs(-1, [], target)
+      return res
+
+S = Solution()
+print(S.combinationSum2([10,1,2,7,6,1,5],8))

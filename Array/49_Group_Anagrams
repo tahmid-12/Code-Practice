@@ -1,0 +1,27 @@
+from typing import List
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+      # Input: strs = ["eat","tea","tan","ate","nat","bat"]
+      # Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+      group_dict = {}
+
+      for s in strs:
+        # Sort the current string and rearranges them in lexicographic-ally (i.e. nat → ant, tan → ant)
+        k = "".join(sorted(s))
+        print("Kin",k)
+        if k in group_dict:
+          # Append the string to the existing list
+          group_dict[k].append(s)
+          print("Grupt Dict",group_dict)
+        else:
+          # Add the first string as a list so subsequent anagrams be added under this key in the dictionary
+          group_dict[k] = [s]
+
+      return group_dict.values()
+      
+      
+      
+      
+S = Solution()
+print(S.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))

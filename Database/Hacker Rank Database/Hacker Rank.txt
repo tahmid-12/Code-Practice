@@ -14,3 +14,7 @@ SELECT DISTINCT CITY FROM STATION WHERE (CITY LIKE 'a%' OR CITY LIKE 'e%' OR CIT
 SELECT DISTINCT(CITY) FROM STATION WHERE NOT (CITY like 'a%' or CITY like 'e%' or CITY like 'i%' or CITY like 'o%' or CITY like 'u%'); 
 SELECT DISTINCT CITY FROM STATION WHERE NOT (CITY LIKE '%a' OR  CITY  LIKE '%e' OR CITY  LIKE '%i' OR CITY  LIKE '%o' OR CITY  LIKE '%u') ORDER BY CITY;
 SELECT DISTINCT CITY FROM STATION WHERE (NOT(CITY  Like 'A%' OR CITY LIKE 'E%' OR CITY LIKE 'O%' OR CITY LIKE 'I%' OR CITY LIKE 'U%')) OR (NOT (CITY LIKE '%a' OR CITY  LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u'));
+select distinct city from station where not (city like 'A%' or city like 'E%' or city like 'I%' or city like 'O%' or  city like 'U%') and not (city like '%a' or city like '%e' or city like '%i' or city like '%o' or  city like '%u');
+SELECT Name FROM STUDENTS WHERE Marks > 75 ORDER BY RIGHT(Name, 3), ID;
+SELECT name from Employee ORDER BY name;
+SELECT name FROM Employee WHERE salary > 2000 and months < 10 ORDER BY employee_id;

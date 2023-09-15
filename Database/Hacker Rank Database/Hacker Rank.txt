@@ -23,3 +23,9 @@ SELECT CASE
        WHEN A = B AND B = C THEN 'Equilateral' 
        WHEN A = B OR B = C OR A = C THEN 'Isosceles' 
 ELSE 'Scalene' END FROM TRIANGLES;
+SELECT concat(Name,'(',LEFT(Occupation,1),')')
+FROM OCCUPATIONS
+ORDER BY Name;
+SELECT concat('There are a total of ',count(Occupation), ' ',lower(Occupation),'s.')
+FROM OCCUPATIONS GROUP BY Occupation
+ORDER BY COUNT(Occupation),Occupation;

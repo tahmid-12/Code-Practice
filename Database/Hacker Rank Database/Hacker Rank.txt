@@ -57,3 +57,4 @@ SELECT ROUND(AVG(Population)) AS AvgPopulation FROM City ;
 SELECT SUM(POPULATION) FROM CITY WHERE COUNTRYCODE = 'JPN';
 SELECT MAX(POPULATION)-MIN(POPULATION) from CITY;
 SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0',''))) FROM EMPLOYEES;
+select months*salary, count(*) from employee group by months*salary order by months*salary DESC limit 1;

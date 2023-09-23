@@ -59,3 +59,4 @@ SELECT MAX(POPULATION)-MIN(POPULATION) from CITY;
 SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0',''))) FROM EMPLOYEES;
 select months*salary, count(*) from employee group by months*salary order by months*salary DESC limit 1;
 SELECT ROUND(SUM(LAT_N), 2),ROUND(SUM(LONG_W), 2) FROM STATION;
+SELECT ROUND(SUM(LAT_N),4) FROM STATION WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;

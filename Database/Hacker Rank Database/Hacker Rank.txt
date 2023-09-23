@@ -29,3 +29,23 @@ ORDER BY Name;
 SELECT concat('There are a total of ',count(Occupation), ' ',lower(Occupation),'s.')
 FROM OCCUPATIONS GROUP BY Occupation
 ORDER BY COUNT(Occupation),Occupation;
+SELECT b.n, 
+case
+    when b.p is not null then
+         case
+             when (SELECT count(*) FROM bst WHERE p = b.n) = 0
+             then 'Leaf' 
+             else 'Inner' 
+         end
+    else
+        'Root'
+end
+FROM bst b
+ORDER BY b.n;
+SELECT COMPANY_CODE, FOUNDER,
+(SELECT COUNT(DISTINCT LEAD_MANAGER_CODE) FROM LEAD_MANAGER WHERE COMPANY_CODE = C.COMPANY_CODE),
+(SELECT COUNT(DISTINCT SENIOR_MANAGER_CODE) FROM SENIOR_MANAGER WHERE COMPANY_CODE = C.COMPANY_CODE),
+(SELECT COUNT(DISTINCT MANAGER_CODE) FROM MANAGER WHERE COMPANY_CODE = C.COMPANY_CODE),
+(SELECT COUNT(DISTINCT EMPLOYEE_CODE) FROM EMPLOYEE WHERE COMPANY_CODE = C.COMPANY_CODE)
+FROM COMPANY C
+ORDER BY COMPANY_CODE;

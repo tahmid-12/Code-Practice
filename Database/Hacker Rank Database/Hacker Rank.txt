@@ -68,3 +68,4 @@ SELECT ROUND(SQRT(POW(MAX(LAT_N)-MIN(LAT_N),2)+POW(MAX(LONG_W)-MIN(LONG_W),2)),4
 SELECT ROUND(ABS(MAX(LAT_N)  - MIN(LAT_N)) + ABS(MAX(LONG_W) - MIN(LONG_W)), 4) FROM STATION;
 Select round(S.LAT_N,4) from station AS S where (select count(Lat_N) from station where Lat_N < S.LAT_N ) = (select count(Lat_N) from station where Lat_N > S.LAT_N);
 SELECT * FROM CITY WHERE POPULATION > 100000 AND COUNTRYCODE = "USA";
+SELECT sum(City.Population) FROM CITY INNER JOIN Country ON City.CountryCode = Country.Code WHERE Country.Continent = 'Asia';

@@ -15,3 +15,5 @@ and E.DepartmentId = D.Id
 order by E.DepartmentId, E.Salary desc;
 
 DELETE A FROM Person A, Person B  WHERE A.id > B.id and A.email=B.email;
+
+SELECT DISTINCT a.Id FROM Weather a,Weather b WHERE a.Temperature > b.Temperature AND DATEDIFF(a.Recorddate, b.Recorddate) = 1

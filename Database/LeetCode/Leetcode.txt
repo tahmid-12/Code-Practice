@@ -23,3 +23,5 @@ SELECT name from Employee WHERE Id IN (SELECT managerId FROM Employee GROUP BY m
 SELECT name, bonus FROM employee LEFT JOIN bonus on employee.empid=bonus.empid WHERE bonus IS NULL OR bonus<1000
 
 SELECT name FROM customer WHERE referee_id <> 2 OR referee_id IS NULL
+
+SELECT customer_number FROM Orders GROUP BY customer_number ORDER BY COUNT(*) DESC LIMIT 1

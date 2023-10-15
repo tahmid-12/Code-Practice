@@ -19,3 +19,5 @@ DELETE A FROM Person A, Person B  WHERE A.id > B.id and A.email=B.email;
 SELECT DISTINCT a.Id FROM Weather a,Weather b WHERE a.Temperature > b.Temperature AND DATEDIFF(a.Recorddate, b.Recorddate) = 1
 
 SELECT name from Employee WHERE Id IN (SELECT managerId FROM Employee GROUP BY managerId HAVING (COUNT(DISTINCT Id)) >= 5)
+
+SELECT name, bonus FROM employee LEFT JOIN bonus on employee.empid=bonus.empid WHERE bonus IS NULL OR bonus<1000

@@ -1,2 +1,6 @@
 select `Email` from `Person` group by `Email` having count(*)>1
 select customers.name as 'Customers' from customers where customers.id not in (select customerid from orders);
+SELECT Department.Name AS Department, Employee.Name AS Employee, Salary
+FROM EMPLOYEE JOIN Department ON Employee.DepartmentId = Department.Id
+WHERE (DepartmentId, Salary) IN
+(SELECT DepartmentId, MAX(Salary) FROM EMPLOYEE GROUP BY DepartmentId)

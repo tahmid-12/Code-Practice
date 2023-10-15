@@ -21,3 +21,5 @@ SELECT DISTINCT a.Id FROM Weather a,Weather b WHERE a.Temperature > b.Temperatur
 SELECT name from Employee WHERE Id IN (SELECT managerId FROM Employee GROUP BY managerId HAVING (COUNT(DISTINCT Id)) >= 5)
 
 SELECT name, bonus FROM employee LEFT JOIN bonus on employee.empid=bonus.empid WHERE bonus IS NULL OR bonus<1000
+
+SELECT name FROM customer WHERE referee_id <> 2 OR referee_id IS NULL

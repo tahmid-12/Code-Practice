@@ -29,3 +29,19 @@ SELECT customer_number FROM Orders GROUP BY customer_number ORDER BY COUNT(*) DE
 SELECT name, population, area FROM World WHERE area >= 3000000 OR population >= 25000000
 
 SELECT class FROM Courses GROUP BY class HAVING COUNT(distinct student) > 4
+
+WITH cte AS
+(
+    SELECT requester_id AS id, accepter_id
+    FROM RequestAccepted
+    UNION
+    SELECT accepter_id AS id, requester_id
+    FROM RequestAccepted
+)
+
+SELECT id, COUNT(DISTINCT accepter_id) AS num
+FROM cte
+GROUP BY id
+ORDER BY num DESC
+LIMIT 1;
+

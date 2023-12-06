@@ -1,0 +1,15 @@
+Array.prototype.groupBy = function(fn) {
+    const collection = {}
+    for(const item of this) {
+        const key = fn(item)
+        if (collection.hasOwnProperty(key)){
+            collection[key].push(item)
+        } else {
+        collection[key] = [item]
+        }
+    }
+    return collection
+    
+};
+
+console.log([1,2,3].groupBy(String)) // {"1":[1],"2":[2],"3":[3]}

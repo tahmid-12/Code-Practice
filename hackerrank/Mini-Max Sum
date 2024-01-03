@@ -1,0 +1,22 @@
+function miniMaxSum(arr) {
+    // Write your code here
+    let minSum = Infinity;
+    let maxSum = -Infinity;
+    let totalSum = 0;
+    
+    for (let i = 0; i < arr.length; i++) {
+        totalSum += arr[i];
+    }
+    
+    for (let i = 0; i < arr.length; i++) {
+        let sum = totalSum - arr[i];
+        if (sum < minSum) {
+            minSum = sum;
+        }
+        if (sum > maxSum) {
+            maxSum = sum;
+        }
+    }
+    
+    console.log(`${minSum} ${maxSum}`);
+}

@@ -1,0 +1,14 @@
+function lonelyinteger(a) {
+    // Write your code here
+     const set = new Set();
+
+    a.forEach((item) => {
+        if (set.has(item)) {
+        set.delete(item);
+        } else {
+        set.add(item);
+        }
+    });
+
+    return set.values().next().value; 
+}
